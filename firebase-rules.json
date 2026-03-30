@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "sessions": {
+      "$pin": {
+        // Qualquer um pode ler a sessão (para entrar no jogo)
+        ".read": true,
+
+        // Somente a sessão pode ser criada com os campos corretos
+        // Na produção, use Firebase Auth + Admin SDK para restringir mais
+        ".write": true,
+
+        "players": {
+          "$playerId": {
+            ".read":  true,
+            ".write": true,
+
+            "answers": {
+              "$questionId": {
+                // Permite escrever a resposta uma única vez (não pode editar)
+                ".write": "!data.exists()"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

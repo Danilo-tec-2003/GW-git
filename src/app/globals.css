@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', system-ui;
+  --font-body: 'DM Sans', system-ui;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Cores GW */
+  --gw-blue:    #0055A4;
+  --gw-navy:    #002D6B;
+  --gw-sky:     #1A7FD4;
+  --gw-green:   #00C853;
+  --gw-red:     #FF1744;
+  --gw-gold:    #FFD700;
+  --gw-dark:    #060D1F;
+  --gw-surface: #0D1B35;
+  --gw-card:    #122040;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: var(--gw-dark);
+  color: #F0F4FF;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--gw-surface); }
+::-webkit-scrollbar-thumb  { background: var(--gw-blue); border-radius: 3px; }
+
+/* Utilitários customizados */
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-mono    { font-family: var(--font-mono); }
+
+  .glass {
+    background: rgba(18, 32, 64, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(26,127,212,0.4), 0 0 60px rgba(26,127,212,0.1);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(0,200,83,0.5);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(255,23,68,0.5);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 24px rgba(255,215,0,0.5);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #1A7FD4 0%, #00C8FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Animação do timer */
+@keyframes timer-drain {
+  from { width: 100%; }
+  to   { width: 0%; }
+}
+
+/* Fundo de partículas/grade sutil */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(26,127,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,127,212,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
